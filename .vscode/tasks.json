@@ -1,0 +1,35 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            //build the project
+            "label": "Build",
+            "type": "shell",
+            "command": "mingw32-make -j8 all TARGET=vsarm_firmware OPT=\"-O2\" BINPATH=\"${env:VSARM}armcc\/bin\"",
+            "options": {
+                "cwd": "${workspaceRoot}"
+            }, 
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            //flash the microcontroller
+            "label": "Load Firmware",
+            "type": "shell",
+            "command": "st-flash write ./build/vsarm_firmware.bin 0x08000000",
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

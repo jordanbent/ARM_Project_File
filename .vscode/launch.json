@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [        
+    {
+        "name": "Cortex-ARM Learning",
+        "type": "cortex-arm-learning",
+        "request": "launch",
+        "servertype": "jlink",
+        "cwd": "${workspaceRoot}",
+        "executable": ".ignore/main.elf",
+        "device": "STM32F411RE",
+        "v1": false,
+        "svdFile": "${workspaceRoot}/STM32F411.svd",
+        "interface": "swd"
+        }
+    ]
+}
